@@ -1,0 +1,31 @@
+<div>
+    <div style="position: relative; width:80vw; height:60vw; margin: auto;">
+        <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            >
+        </canvas>
+
+        <mat-slider
+            [(ngModel)]="chartCap"
+            (change)="adjust()"
+            thumbLabel
+            tickInterval="1"
+            min="10"
+            [max]="sliderMax">
+        </mat-slider>
+
+    </div>
+
+</div>
+
+{{chartCap}}
+<!-- {{slider.value}} -->
+
+
+
+<!-- <button mat-button>Click me!</button> -->
+
