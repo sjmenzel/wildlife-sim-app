@@ -31,7 +31,7 @@ export class ChartComponent implements OnInit {
         ticks: {
           beginAtZero: false,
           min: 0,
-          max: speciesJson[0].length,
+          max: speciesJson[0]['pop'].length,
           stepsize: 1
         }
       }]
@@ -43,21 +43,20 @@ export class ChartComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData = [
-    { data: speciesJson[0], label: 'Species A', fill: false },
-    { data: speciesJson[1], label: 'Species B', fill: false },
-    { data: speciesJson[2], label: 'Species C', fill: false },
-    { data: speciesJson[3], label: 'Species D', fill: false },
-    { data: speciesJson[4], label: 'Species E', fill: false },
-    { data: speciesJson[5], label: 'Species F', fill: false }
+
   ];
 
   constructor() { }
 
   ngOnInit() {
+    for (let i = 1; i < speciesJson.length; i++){
+      this.barChartData.push({ data: speciesJson[i]['pop'], label: speciesJson[i]['name'], fill: false })
+    }
+
     for (let i = 1; i < this.chartCap; i++) {
       this.barChartLabels.push(i)
     }
-    this.sliderMax = speciesJson[0].length
+    this.sliderMax = speciesJson[0]['pop'].length
   }
 
   adjust() {
@@ -69,7 +68,7 @@ export class ChartComponent implements OnInit {
       this.barChartLabels = []
       for(let i = 0; i < this.chartCap; i++)
         this.barChartLabels.push(i + 1)
-      console.log(speciesJson[0].length)
+      console.log(speciesJson[0]['pop'].length)
     }
 
   }
