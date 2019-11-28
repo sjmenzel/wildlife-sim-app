@@ -1,0 +1,15 @@
+
+<div class="species-list">
+    <h1>Your Species</h1>
+
+    <ul style="padding-left: 0px;">
+        <li *ngFor="let species of speciesList" style="list-style: none; margin-top: 10px;">
+            <div class="species-card">
+                <!-- <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" style="width: 50px; height: 50px; border-radius: 100%;"> -->
+                <h3>{{species.name}}</h3>
+                <app-image url="{{species.imageURL}}" style="width: 30px; height: 30px; border-radius: 100%;">
+                </app-image>
+            </div>
+        </li>
+    </ul>
+</div>

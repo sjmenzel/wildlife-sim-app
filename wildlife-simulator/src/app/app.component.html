@@ -1,2 +1,7 @@
 <!-- <div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div> -->
-<router-outlet></router-outlet>
+<div class="toolbar" style="position: fixed; z-index: 999; width: 100%; height: 40px;">
+    <app-toolbar></app-toolbar>
+</div>
+<div class="page" style="padding-top: 40px;">
+    <router-outlet></router-outlet>
+</div>

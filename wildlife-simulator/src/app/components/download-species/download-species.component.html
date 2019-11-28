@@ -1,0 +1,41 @@
+<div class="species-list">
+    <h1>Community Species</h1>
+
+    <ul style="padding-left: 0px;" class="list">
+
+        <li *ngFor="let species of allSpecies"
+            style="list-style: none; margin-top: 10px; display: flex; flex-direction: row;">
+
+            <div class="species-card">
+                <button mat-button class="download" (click)="addSpecies(species)" *ngIf="!hasSpecies(species);">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button mat-button disabled class="download added" *ngIf="hasSpecies(species);">
+                    <mat-icon>done</mat-icon>
+                </button>
+                <div class="portrait">
+                    <app-image url="{{species.imageURL}}" class="image"></app-image>
+                </div>
+                <div class="info">
+                    <h2>{{species.name}}</h2>
+                    <p>Class: {{species.class}}</p>
+                    <p>Diet: {{species.diet}}</p>
+                    <p>Author: {{species.author}}</p>
+                </div>
+                <div class="stats">
+                    <mat-icon style="margin-left: auto; margin-right: auto;">ac_unit</mat-icon>
+                    <div class="stat-bar" [style.width.px]="barWidth(species.stats.env)">{{species.stats.env}}</div>
+                    <!-- <div style="width:calc(25px * '{{species.stats.env}}'); height: 24px; background-color: green; text-align: center; color: white">{{species.stats.env}}</div> -->
+                    <mat-icon style="margin-left: auto; margin-right: auto;">fitness_center</mat-icon>
+                    <div class="stat-bar" [style.width.px]="barWidth(species.stats.com)">{{species.stats.com}}</div>
+                    <mat-icon style="margin-left: auto; margin-right: auto;">favorite</mat-icon>
+                    <div class="stat-bar" [style.width.px]="barWidth(species.stats.rep)">{{species.stats.rep}}</div>
+                    <mat-icon style="margin-left: auto; margin-right: auto;">flash_on</mat-icon>
+                    <div class="stat-bar" [style.width.px]="barWidth(species.stats.nrg)">{{species.stats.nrg}}</div>
+                </div>
+            </div>
+
+
+        </li>
+    </ul>
+</div>

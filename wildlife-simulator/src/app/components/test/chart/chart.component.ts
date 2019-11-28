@@ -31,7 +31,7 @@ export class ChartComponent implements OnInit {
         ticks: {
           beginAtZero: false,
           min: 0,
-          max: speciesJson[0]['pop'].length,
+          max: 50,
           stepsize: 1
         }
       }]
@@ -49,27 +49,26 @@ export class ChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    for (let i = 1; i < speciesJson.length; i++){
-      this.barChartData.push({ data: speciesJson[i]['pop'], label: speciesJson[i]['name'], fill: false })
+    for (let i = 1; i < 50; i++){
+      this.barChartData.push({ data: speciesJson['populations'][i]['SpeciesA'], label: 'SpeciesA', fill: false })
     }
 
-    for (let i = 1; i < this.chartCap; i++) {
+    for (let i = 1; i < 50; i++) {
       this.barChartLabels.push(i)
     }
-    this.sliderMax = speciesJson[0]['pop'].length
+    // this.sliderMax = speciesJson[0]['pop'].length
   }
 
   adjust() {
-    if (this.chartCap > this.barChartLabels.length) {
-      for(let i = this.barChartLabels.length; i < this.chartCap; i++)
-        this.barChartLabels.push(i)
-    }
-    else if(this.chartCap < this.barChartLabels.length){
-      this.barChartLabels = []
-      for(let i = 0; i < this.chartCap; i++)
-        this.barChartLabels.push(i + 1)
-      console.log(speciesJson[0]['pop'].length)
+    // if (this.chartCap > this.barChartLabels.length) {
+    //   for(let i = this.barChartLabels.length; i < this.chartCap; i++)
+    //     this.barChartLabels.push(i)
+    // }
+    // else if(this.chartCap < this.barChartLabels.length){
+    //   this.barChartLabels = []
+    //   for(let i = 0; i < this.chartCap; i++)
+    //     this.barChartLabels.push(i + 1)
+    //   console.log(speciesJson[0]['pop'].length)
     }
 
-  }
 }

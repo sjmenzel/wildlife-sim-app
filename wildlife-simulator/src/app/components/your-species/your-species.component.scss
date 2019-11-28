@@ -1,0 +1,38 @@
+@import "../../variables.scss";
+
+.species-list {
+    min-width: 300px;
+    max-width: 100%;
+
+    >h1 {
+        margin: 0px;
+        font-size: 22px;
+        color: $light-text-color;
+        text-transform: uppercase;
+        background-color: $secondary-color;
+        text-align: left;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    >.list {
+        height: 100%;
+    }
+}
+
+.species-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    padding: 5px;
+    padding-left: 20px;     
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.species-card:hover {
+    background-color: $tertiary-color;
+}
