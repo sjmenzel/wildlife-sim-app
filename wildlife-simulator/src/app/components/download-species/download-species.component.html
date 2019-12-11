@@ -7,7 +7,7 @@
             style="list-style: none; margin-top: 10px; display: flex; flex-direction: row;">
 
             <div class="species-card">
-                <button mat-button class="download" (click)="addSpecies(species)" *ngIf="!hasSpecies(species);">
+                <button mat-button class="download" (click)="addSpecies(species)" *ngIf="!hasSpecies(species);"  matTooltip="Subscribe" matTooltipShowDelay="500">
                     <mat-icon>add</mat-icon>
                 </button>
                 <button mat-button disabled class="download added" *ngIf="hasSpecies(species);">

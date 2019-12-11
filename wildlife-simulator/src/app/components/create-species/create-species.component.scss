@@ -1,0 +1,80 @@
+@import '../../variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    min-height: 600px;
+    justify-content: space-between;
+
+    >.header {
+
+    }
+
+    >.main {
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        float: left;
+
+        h2 {
+            margin: 0px;
+            font-size: 22px;
+            color: $light-text-color;
+            text-transform: uppercase;
+            background-color: $secondary-color;
+            text-align: left;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        >.info-form {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: 15px;
+            margin-bottom: 30px;
+            margin-top: 20px; 
+
+            >.left {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                margin-right: 50px;
+            }
+
+            >.right {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .portrait {
+                    padding: 20px;
+                }
+
+                button {
+                    width: 100%;
+                }
+            }
+        }
+
+        >.fitness-form {
+            margin-left: 15px;
+            margin-right: auto;
+            margin-top: 20px; 
+            display: grid;
+            grid-template-columns: 40px auto 60px;
+            width: 100%;
+        }
+        
+    }
+
+    >.footer {
+        margin-top: 20px;
+    }
+}
+
+.full-width {
+    width: 100%;
+}

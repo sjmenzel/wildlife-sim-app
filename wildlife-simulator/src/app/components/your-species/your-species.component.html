@@ -1,15 +1,38 @@
-
 <div class="species-list">
     <h1>Your Species</h1>
 
     <ul style="padding-left: 0px;">
+        <li style="list-style: none; margin-top: 10px;">
+            <button mat-button class="create-button" (click)="openCreateSpecies()">CREATE NEW SPECIES</button></li>
         <li *ngFor="let species of speciesList" style="list-style: none; margin-top: 10px;">
-            <div class="species-card">
-                <!-- <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" style="width: 50px; height: 50px; border-radius: 100%;"> -->
-                <h3>{{species.name}}</h3>
-                <app-image url="{{species.imageURL}}" style="width: 30px; height: 30px; border-radius: 100%;">
-                </app-image>
+            <div class="species-card" [matMenuTriggerFor]="menu" (click)="selectedSpecies=species">
+                <div class="card-info">
+                    <h3>{{species.name}}</h3>
+                    <div style="display: flex; flex-direction: row; justify-content: right; align-items: center;">
+
+                        <mat-icon style="color: gold; right: 10px; position: relative;" matTooltip="You made this!"
+                            matTooltipShowDelay="500" *ngIf="isCreator(species)">star</mat-icon>
+
+                        <mat-icon style="color: orange; right: 80px; position: relative;" matTooltip="This item has not been shared and only exists locally."
+                            matTooltipShowDelay="500" *ngIf="isCreator(species) && !species.shared">warning</mat-icon>
+
+                        <app-image url="{{species.imageURL}}" style="width: 30px; height: 30px; border-radius: 100%;">
+                        </app-image>
+                    </div>
+
+                </div>
             </div>
         </li>
     </ul>
 </div>
+
+<mat-menu #menu="matMenu" xPosition="before" (hasBackdrop)="false">
+    <button mat-menu-item  *ngIf="isCreator(selectedSpecies)">
+        <mat-icon style="margin-bottom: 3px;">cloud_upload</mat-icon>
+        <span>Share Online</span>
+    </button>
+    <button mat-menu-item (click)="unsubscribe(selectedSpecies)">
+        <mat-icon style="margin-bottom: 2px;">cancel</mat-icon>
+        <span>Unsubscribe</span>
+    </button>
+</mat-menu>

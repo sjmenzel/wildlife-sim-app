@@ -29,7 +29,7 @@ export class DownloadSpeciesComponent implements OnInit {
   }
 
   addSpecies(species: Species){
-    this._snackBar.open('Added ' + species.name, undefined, {
+    this._snackBar.open('Subscribed to ' + species.name + ' created by ' + species.author, undefined, {
       duration: 2000,
     });
 

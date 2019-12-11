@@ -1,0 +1,61 @@
+<div class="container">
+
+    <div class="main">
+        <h2>Info</h2>
+        <form class="info-form">
+            <div class="left">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Species Name" value="" required class="full-width">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Classification</mat-label>
+                    <mat-select required>
+                        <mat-option value="mammal">Mammal</mat-option>
+                        <mat-option value="reptile">Reptile</mat-option>
+                        <mat-option value="amphibian">Amphibian</mat-option>
+                        <mat-option value="bird">Bird</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-radio-group style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <mat-radio-button value="herbivore">Herbivore</mat-radio-button>
+                    <mat-radio-button value="carnivore">Carnivore</mat-radio-button>
+                    <mat-radio-button value="omnivore">Omnivore</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div class="right">
+                <div class="portrait-container">
+                    <div class="portrait">
+                        <app-image url="{{portraitUrl}}" style="height: 100px; width: 100px;"></app-image>
+                    </div>
+                    <button mat-raised-button (click)="openPortraitSelect()">Select Image</button>
+                </div>
+            </div>
+
+        </form>
+        <h2>Fitness</h2>
+        <form class="fitness-form">
+
+            <mat-icon style="margin: auto; margin-left: 0;">ac_unit</mat-icon>
+            <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100" #s1></mat-slider>
+            <p>{{sliderValue(s1.value)}}</p>
+            <mat-icon style="margin: auto; margin-left: 0;">fitness_center</mat-icon>
+            <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100" #s2></mat-slider>
+            <p>{{sliderValue(s2.value)}}</p>
+            <mat-icon style="margin: auto; margin-left: 0;">favorite</mat-icon>
+            <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100" #s3></mat-slider>
+            <p>{{sliderValue(s3.value)}}</p>
+            <mat-icon style="margin: auto; margin-left: 0;">flash_on</mat-icon>
+            <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100" #s4></mat-slider>
+            <p>{{sliderValue(s4.value)}}</p>
+        </form>
+
+
+    </div>
+
+
+    <div class="footer">
+        <button mat-raised-button>CONFIRM</button>
+    </div>
+</div>

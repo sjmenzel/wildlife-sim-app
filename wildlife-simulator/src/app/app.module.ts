@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { ChartsModule } from 'ng2-charts'
 
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
+
+/* Angular Forms */
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 /* Components */
 
@@ -31,6 +40,15 @@ import { YourSpeciesComponent } from './components/your-species/your-species.com
 import { ImageComponent } from './components/image/image.component';
 import { BrowseSpeciesComponent } from './pages/browse-species/browse-species.component';
 import { DownloadSpeciesComponent } from './components/download-species/download-species.component';
+import { CreateSpeciesComponent } from './components/create-species/create-species.component';
+import { PortraitSelectComponent } from './components/portrait-select/portrait-select.component';
+import { ConfirmPublishComponent } from './components/confirm-publish/confirm-publish.component';
+import { EditSpeciesComponent } from './pages/edit-species/edit-species.component';
+import { CreateSpeciesFormComponent } from './components/create-species-form/create-species-form.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 
@@ -44,7 +62,12 @@ import { DownloadSpeciesComponent } from './components/download-species/download
     YourSpeciesComponent,
     ImageComponent,
     BrowseSpeciesComponent,
-    DownloadSpeciesComponent
+    DownloadSpeciesComponent,
+    CreateSpeciesComponent,
+    PortraitSelectComponent,
+    ConfirmPublishComponent,
+    EditSpeciesComponent,
+    CreateSpeciesFormComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +75,7 @@ import { DownloadSpeciesComponent } from './components/download-species/download
     FormsModule,
     ChartsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatSliderModule,
     MatButtonModule,
     MatListModule,
@@ -59,10 +83,23 @@ import { DownloadSpeciesComponent } from './components/download-species/download
     MatGridListModule,
     MatIconModule,
     MatChipsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule,
+    MatInputModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatStepperModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatTooltipModule
+    
     
   ],
   providers: [CookieService],
+  entryComponents: [
+    PortraitSelectComponent,
+    CreateSpeciesComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

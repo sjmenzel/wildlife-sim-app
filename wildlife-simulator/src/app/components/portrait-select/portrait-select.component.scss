@@ -1,0 +1,15 @@
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    >.tile {
+        z-index: 3;
+        width: 150px;
+        height: 150px;
+
+        >.image {
+            margin: auto;
+        }
+    }
+}

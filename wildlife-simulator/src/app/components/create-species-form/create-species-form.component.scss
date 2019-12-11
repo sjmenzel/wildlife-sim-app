@@ -1,0 +1,30 @@
+>.info-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    margin-top: 20px; 
+
+    >.left {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-right: 50px;
+    }
+
+    >.right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .portrait {
+            padding: 20px;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+}

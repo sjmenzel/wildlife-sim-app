@@ -7,6 +7,7 @@ export interface Species {
     author?: string,
     imageURL?: string,
     traits?: Trait[]
+    shared?: boolean;
     stats?: {
         env: number,
         com: number,

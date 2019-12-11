@@ -1,0 +1,14 @@
+<!-- <mat-grid-list cols="6" rowHeight="1:1" class="grid">
+
+    <mat-grid-tile *ngFor="let img of images" class="tile">
+        <button mat-button style="height: 100%; width: 100%;" (click)="selectImage(img)">
+            <app-image url="{{img}}" style="height: 50px; width: 50px;"></app-image>
+        </button>
+    </mat-grid-tile>
+</mat-grid-list> -->
+
+<div class="grid">
+    <button mat-button *ngFor="let img of images" class="tile" (click)="selectImage(img)">
+        <app-image class="image" url="{{img}}" style="width: 100px; height: 100px;"></app-image>
+    </button>
+</div>

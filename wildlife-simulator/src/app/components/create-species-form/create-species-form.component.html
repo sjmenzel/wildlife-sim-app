@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup">
+    <mat-horizontal-stepper>
+        <mat-step>
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Species Name" value="" required class="full-width">
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <mat-label>Classification</mat-label>
+                <mat-select required>
+                    <mat-option value="mammal">Mammal</mat-option>
+                    <mat-option value="reptile">Reptile</mat-option>
+                    <mat-option value="amphibian">Amphibian</mat-option>
+                    <mat-option value="bird">Bird</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-radio-group style="display: flex; flex-direction: row; justify-content: space-between;">
+                <mat-radio-button value="herbivore">Herbivore</mat-radio-button>
+                <mat-radio-button value="carnivore">Carnivore</mat-radio-button>
+                <mat-radio-button value="omnivore">Omnivore</mat-radio-button>
+            </mat-radio-group>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            ...
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            ...
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</form>

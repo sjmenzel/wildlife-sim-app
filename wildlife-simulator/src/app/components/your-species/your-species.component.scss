@@ -11,13 +11,30 @@
         text-transform: uppercase;
         background-color: $secondary-color;
         text-align: left;
-        padding: 15px;
+        padding: 15px;  
         box-sizing: border-box;
     }
 
     >.list {
         height: 100%;
     }
+}
+
+.create-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    padding: 5px;
+    padding-left: 20px;     
+    padding-right: 20px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    box-sizing: border-box; 
+    
 }
 
 .species-card {
@@ -31,8 +48,19 @@
     padding-left: 20px;     
     padding-right: 20px;
     box-sizing: border-box;
+
+    >.card-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
 }
 
 .species-card:hover {
-    background-color: $tertiary-color;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.05), 
+        rgba(0, 0, 0, 0.05)
+      ),;
 }
