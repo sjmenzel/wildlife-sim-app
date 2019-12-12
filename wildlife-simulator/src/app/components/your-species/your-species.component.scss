@@ -56,6 +56,26 @@
         align-items: center;
         width: 100%;
     }
+
+    .card-icon {
+        margin-left: 15px;
+
+        &.warning {
+            color: orange;
+        }
+
+        &.creator {
+            color: gold;
+        }
+    }
+
+    .card-image {
+        width: 30px; 
+        height: 30px; 
+        border-radius: 100%; 
+        margin-left: 15px;
+    }
+
 }
 
 .species-card:hover {
@@ -63,4 +83,15 @@
         rgba(0, 0, 0, 0.05), 
         rgba(0, 0, 0, 0.05)
       ),;
+}
+
+.mat-menu-item:hover {
+
+        >.share {
+            color: $primary-color;
+        }
+
+        >.unsubscribe {
+            color: red;
+        }
 }
