@@ -11,12 +11,12 @@ import { CreateSpeciesComponent } from 'src/app/components/create-species/create
 export class HomeComponent implements OnInit {
 
   constructor(
-    private router: Router,
+    public router: Router,
     public dialog: MatDialog
   ) { }
 
   ngOnInit() {
-    
+
   }
 
   openPortraitSelect(): void {

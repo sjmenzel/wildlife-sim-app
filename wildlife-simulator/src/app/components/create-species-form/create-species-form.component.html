@@ -1,43 +1,291 @@
-<form [formGroup]="formGroup">
-    <mat-horizontal-stepper>
-        <mat-step>
-            <mat-form-field class="full-width">
-                <input matInput placeholder="Species Name" value="" required class="full-width">
-            </mat-form-field>
-
-            <mat-form-field class="full-width">
-                <mat-label>Classification</mat-label>
-                <mat-select required>
-                    <mat-option value="mammal">Mammal</mat-option>
-                    <mat-option value="reptile">Reptile</mat-option>
-                    <mat-option value="amphibian">Amphibian</mat-option>
-                    <mat-option value="bird">Bird</mat-option>
-                </mat-select>
-            </mat-form-field>
-
-            <mat-radio-group style="display: flex; flex-direction: row; justify-content: space-between;">
-                <mat-radio-button value="herbivore">Herbivore</mat-radio-button>
-                <mat-radio-button value="carnivore">Carnivore</mat-radio-button>
-                <mat-radio-button value="omnivore">Omnivore</mat-radio-button>
+<div style="height: 500px; display: flex; flex-direction: column; justify-content: space-between;">
+  <mat-horizontal-stepper [formGroup]="formGroup">
+    <mat-step>
+      <div class="step-content">
+        <h2>What is the name of your species?</h2>
+        <input type="text" placeholder="Enter species name">
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How would you classify your species?</h2>
+        <mat-select placeholder="Choose One">
+          <mat-option value="mammal">Mammal</mat-option>
+          <mat-option value="reptile">Reptile</mat-option>
+          <mat-option value="bird">Bird</mat-option>
+          <mat-option value="amphibian">Amphibian</mat-option>
+        </mat-select>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>What is the diet of your species?</h2>
+        <mat-select placeholder="Choose One">
+          <mat-option value="carnivore">Carnivore</mat-option>
+          <mat-option value="herbivore">Herbivore</mat-option>
+          <mat-option value="omnivore">Omnivore</mat-option>
+        </mat-select>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>What does your species look like?</h2>
+        <div class="portrait-container">
+          <div class="portrait">
+            <app-image url="{{portraitUrl}}" style="height: 100px; width: 100px;"></app-image>
+          </div>
+          <button mat-raised-button (click)="openPortraitSelect()">Select Image</button>
+        </div>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How big is your species?</h2>
+        <h3>{{sizeValueDisplay() | uppercase}}</h3>
+        <mat-slider [(ngModel)]="sizeValue" tickInterval="1" min="1" max="5" style="width: 400px"
+          [ngModelOptions]="{standalone: true}"></mat-slider>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How does your species handle these temperatures?</h2>
+        <div class="vertical">
+          <div>
+            <mat-label><b>Hot</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
             </mat-radio-group>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-            </div>
-        </mat-step>
-        <mat-step>
-            ...
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-            </div>
-        </mat-step>
-        <mat-step>
-            ...
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
-            </div>
-        </mat-step>
-    </mat-horizontal-stepper>
-</form>
+          </div>
+          <div>
+            <mat-label><b>Warm</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Cool</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Cold</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How well does your species survive in these types of climates.</h2>
+        <div class="vertical">
+          <div>
+            <mat-label><b>Humid</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Mild</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Arid</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How does your species fare in these types of regions?</h2>
+        <div class="vertical">
+          <div>
+            <mat-label><b>Forests</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Mountains</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Grasslands</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Coastlines</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How would you rate your species senses?</h2>
+        <div class="vertical">
+          <div>
+            <mat-label><b>Sight</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Smell</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Hearing</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How would you rate your species physical capabilities?</h2>
+        <div class="vertical">
+          <div>
+            <mat-label><b>Offensive</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Defensive</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <mat-label><b>Mobility</b></mat-label>
+            <mat-radio-group labelPosition='before'>
+              <mat-radio-button value="0">Poor</mat-radio-button>
+              <mat-radio-button value="1">Fair</mat-radio-button>
+              <mat-radio-button value="2">Good</mat-radio-button>
+              <mat-radio-button value="4">Great</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <div class="step-content">
+        <h2>How many offspring does your species produce per year?</h2>
+        <h3>{{offspringDisplay() | uppercase}}</h3>
+        <mat-slider [(ngModel)]="sizeValue" tickInterval="1" min="1" max="9" style="width: 400px"
+          [ngModelOptions]="{standalone: true}"></mat-slider>
+      </div>
+      <div class="step-options">
+        <button mat-button matStepperNext (click)="next()">Next</button>
+        <button mat-button matStepperPrevious (click)="previous()">Back</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+  <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
+</div>

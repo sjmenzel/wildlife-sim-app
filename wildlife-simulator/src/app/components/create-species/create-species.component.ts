@@ -25,6 +25,8 @@ export class CreateSpeciesComponent implements OnInit {
 
   speciesData: {}
 
+  formatLabel = 'label'
+
   openPortraitSelect(): void {
     const dialogRef = this.dialog.open(PortraitSelectComponent, {
       width: '800px',

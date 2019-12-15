@@ -9,6 +9,8 @@ export class EditSpeciesComponent implements OnInit {
 
   constructor() { }
 
+  savedSpecies = []
+
   ngOnInit() {
   }
 

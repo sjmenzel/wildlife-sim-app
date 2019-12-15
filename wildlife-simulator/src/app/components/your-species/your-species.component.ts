@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CreateSpeciesComponent } from '../create-species/create-species.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IdentityService } from 'src/app/services/identity.service';
+import { CreateSpeciesFormComponent } from '../create-species-form/create-species-form.component';
 
 @Component({
   selector: 'app-your-species',
@@ -39,9 +40,9 @@ export class YourSpeciesComponent implements OnInit {
   }
 
   openCreateSpecies(): void {
-    const dialogRef = this.dialog.open(CreateSpeciesComponent, {
+    const dialogRef = this.dialog.open(CreateSpeciesFormComponent, {
       width: '800px',
-      height: '700px'
+      height: '600px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

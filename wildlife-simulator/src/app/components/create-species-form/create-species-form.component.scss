@@ -1,30 +1,79 @@
->.info-form {
+@import "../../variables.scss";
+
+::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important;
+}
+
+h2 {
+  // background-color: $secondary-color;
+  // color: $light-text-color;
+  padding: 10px;
+  font-size: 48px;
+  text-align: center;
+}
+
+.mat-stepper-horizontal {
+  height: 400px;
+}
+
+::ng-deep .mat-horizontal-content-container {
+  height: 100%;
+
+  > .mat-horizontal-stepper-content {
+    height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    margin-left: 15px;
-    margin-bottom: 30px;
-    margin-top: 20px; 
+  }
+}
 
-    >.left {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        margin-right: 50px;
-    }
+::ng-deep .mat-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-    >.right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+::ng-deep .step-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        .portrait {
-            padding: 20px;
-        }
+::ng-deep .step-options {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
 
-        button {
-            width: 100%;
-        }
-    }
+input[type="text"] {
+  min-width: 300px;
+  max-width: fit-content;
+  padding: 12px;
+  font-family: "Roboto, "Helvetica Neue", sans-serif;";
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+input[type="text"]::placeholder {
+  color: $light-text-color;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.mat-select {
+
 }

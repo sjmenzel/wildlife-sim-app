@@ -13,7 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 
 /* Angular Material */
-
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
@@ -27,13 +26,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 /* Angular Forms */
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 /* Components */
-
 import { HomeComponent } from './pages/home/home.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { YourSpeciesComponent } from './components/your-species/your-species.component';
@@ -45,9 +47,7 @@ import { PortraitSelectComponent } from './components/portrait-select/portrait-s
 import { ConfirmPublishComponent } from './components/confirm-publish/confirm-publish.component';
 import { EditSpeciesComponent } from './pages/edit-species/edit-species.component';
 import { CreateSpeciesFormComponent } from './components/create-species-form/create-species-form.component';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 
 
@@ -91,9 +91,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatStepperModule,
     MatMenuModule,
     MatBadgeModule,
-    MatTooltipModule
-    
-    
+    MatTooltipModule,
+    MatProgressBarModule
+  
   ],
   providers: [CookieService],
   entryComponents: [
